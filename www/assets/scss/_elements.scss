@@ -1,0 +1,31 @@
+// Texte
+
+.e-title1 {
+  font-size: 2rem;
+  color: $white;
+}
+
+.e-title2 {
+  font-size: 20px;
+}
+
+.e-title3 {
+  font-size: 20px;
+}
+
+// Button
+
+.e-button {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  color: $white;
+  text-transform: uppercase;
+  border: 1px solid $black;
+  background-color: $black;
+
+  &:hover {
+    color: $black;
+    background-color: transparent;
+  }
+}

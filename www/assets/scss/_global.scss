@@ -1,0 +1,59 @@
+// Global
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: $black;
+}
+
+a {
+  color: $primary-color;
+}
+
+.u-container {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  @media screen and (min-width: $tablet) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.u-grid {
+  display: grid;
+}
+
+// Pages
+
+.user {
+  padding-top: 50px;
+
+  &_title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  &_container {
+    max-width: 400px;
+  }
+
+  &_submit {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  &_redirect {
+    margin-top: 20px;
+  }
+}
