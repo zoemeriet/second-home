@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product u-container">
     <div class="columns">
       <div class="column">
         <b-carousel :indicator-inside="false">
@@ -12,28 +12,28 @@
       </div>
 
       <div class="column">
-        <h1 class="e-title1">{{ product.name }}</h1>
-        <p>{{ product.price }} €</p>
-        <button class="e-button" @click="addToCart(product)">
+        <h1 class="product_title">{{ product.name }}</h1>
+        <p class="product_price">{{ product.price }} €</p>
+        <button class="product_btn e-button" @click="addToCart(product)">
           Ajouter au panier
         </button>
-        <div>
-          <h2 class="e-title2">Details</h2>
-          <div>{{ product.description }}</div>
+        <div class="product_description">
+          <h2 class="product_subtitle">Details</h2>
+          <p>{{ product.description }}</p>
 
           <div v-if="product.material">
-            <h3 class="e-title3">Materiaux</h3>
-            {{ product.material.name }}
+            <h3 class="product_subtitle">Materiaux</h3>
+            <p>{{ product.material.name }}</p>
           </div>
 
           <div v-if="product.color">
-            <h3 class="e-title3">Couleur</h3>
-            {{ product.color.name }}
+            <h3 class="product_subtitle">Couleur</h3>
+            <p>{{ product.color.name }}</p>
           </div>
 
           <div v-if="product.style">
-            <h3 class="e-title3">Style</h3>
-            {{ product.style.name }}
+            <h3 class="product_subtitle">Style</h3>
+            <p>{{ product.style.name }}</p>
           </div>
         </div>
       </div>
@@ -51,10 +51,10 @@ export default {
   async asyncData({ $strapi, params, error }) {
     try {
       const matchingProducts = await $strapi.find("products", {
-        slug: params.slug
+        slug: params.slug,
       });
       return {
-        product: matchingProducts[0]
+        product: matchingProducts[0],
       };
     } catch (error) {
       this.error = error;
@@ -63,18 +63,56 @@ export default {
 
   data() {
     return {
-      apiUrl: process.env.strapiBaseUri
+      apiUrl: process.env.strapiBaseUri,
     };
   },
 
   methods: {
     ...mapMutations({
       addToCart: "cart/add",
-      removeFromCart: "cart/remove"
+      removeFromCart: "cart/remove",
     }),
-    getStrapiMedia
-  }
+    getStrapiMedia,
+  },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.product {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  &_title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding-bottom: 10px;
+  }
+
+  &_price {
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 10px;
+  }
+
+  &_btn {
+    margin-bottom: 20px;
+  }
+
+  &_description {
+    margin-top: 20px;
+    padding-top: 30px;
+    border-top: 1px solid #9a9a9a;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  &_subtitle {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+}
+</style>

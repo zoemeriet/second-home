@@ -44,7 +44,14 @@ export default {
 
   // Configurations for Strapi
   strapi: {
-    entities: ["products", "categories", "colors", "materials", "styles"],
+    entities: [
+      "all_products",
+      "products",
+      "categories",
+      "colors",
+      "materials",
+      "styles"
+    ],
     url: strapiBaseUri
   },
 

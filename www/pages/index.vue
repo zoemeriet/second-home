@@ -42,8 +42,8 @@
           />
         </div>
         <div class="decoration_text">
-          <h2 class="e-title2">Un peu de décoration</h2>
-          <nuxt-link to="/categories/decoration" class="e-button"
+          <h2 class="e-title2">Du linge de maison vintage</h2>
+          <nuxt-link to="/categories/linge-de-maison" class="e-button"
             >Découvrir</nuxt-link
           >
         </div>
